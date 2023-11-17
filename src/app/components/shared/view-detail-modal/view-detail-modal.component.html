@@ -1,0 +1,53 @@
+<div>
+    <h2>{{ participantData?.name }}</h2>
+  
+    <div>
+      <h3>Personal Information</h3>
+      <ul>
+        <li><strong>Email:</strong> {{ participantData?.email }}</li>
+        <li><strong>Mobile Number:</strong> {{ participantData?.mobileNo }}</li>
+        <li><strong>Address:</strong> {{ participantData?.address }}</li>
+        <li *ngIf="participantData?.linkedInProfile"><strong>LinkedIn Profile:</strong> {{ participantData?.linkedInProfile }}</li>
+        <li *ngIf="participantData?.age"><strong>Age:</strong> {{ participantData?.age }}</li>
+      </ul>
+    </div>
+  
+    <div *ngIf="hasFlightDetails()">
+      <h3>Flight Details</h3>
+      <ul>
+        <li *ngIf="participantData?.arrivalFlightDetails?.arrivalDate"><strong>Arrival Date:</strong> {{ participantData.arrivalFlightDetails?.arrivalDate | date:'medium' }}</li>
+        <li *ngIf="participantData?.arrivalFlightDetails?.origin"><strong>Origin:</strong> {{ participantData.arrivalFlightDetails?.origin }}</li>
+        <li *ngIf="participantData?.arrivalFlightDetails?.flightNo"><strong>Flight Number:</strong> {{ participantData.arrivalFlightDetails?.flightNo }}</li>
+        <li *ngIf="participantData?.arrivalFlightDetails?.originCity"><strong>Origin City:</strong> {{ participantData.arrivalFlightDetails?.originCity }}</li>
+        <li *ngIf="participantData?.arrivalFlightDetails?.carrier"><strong>Carrier:</strong> {{ participantData.arrivalFlightDetails?.carrier }}</li>
+        <li *ngIf="participantData?.arrivalFlightDetails?.comments"><strong>Comments:</strong> {{ participantData.arrivalFlightDetails?.comments }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.departureDate"><strong>Departure Date:</strong> {{ participantData.departureFlightDetails?.departureDate | date:'medium' }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.destination"><strong>Destination:</strong> {{ participantData.departureFlightDetails?.destination }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.flightNo"><strong>Flight Number:</strong> {{ participantData.departureFlightDetails?.flightNo }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.destinationCity"><strong>Destination City:</strong> {{ participantData.departureFlightDetails?.destinationCity }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.carrier"><strong>Carrier:</strong> {{ participantData.departureFlightDetails?.carrier }}</li>
+        <li *ngIf="participantData?.departureFlightDetails?.commments"><strong>Comments:</strong> {{ participantData.departureFlightDetails?.commments }}</li>
+      </ul>
+    </div>
+  
+    <div *ngIf="hasHotelDetails()">
+      <h3>Hotel Details</h3>
+  <ul>
+    <li *ngIf="participantData?.hotelDetails?.name"><strong>Name:</strong> {{ participantData?.hotelDetails?.name }}</li>
+    <li *ngIf="participantData?.hotelDetails?.contactNo"><strong>Contact Number:</strong> {{ participantData?.hotelDetails?.contactNo }}</li>
+    <li *ngIf="participantData?.hotelDetails?.fromDate"><strong>From Date:</strong> {{ participantData?.hotelDetails?.fromDate | date:'medium'}}</li>
+    <li *ngIf="participantData?.hotelDetails?.toDate"><strong>To Date:</strong> {{ participantData?.hotelDetails?.toDate | date:'medium' }}</li>
+    <li *ngIf="participantData?.hotelDetails?.address"><strong>Address:</strong> {{ participantData?.hotelDetails?.address }}</li>
+    <li *ngIf="participantData?.hotelDetails?.comments"><strong>Comments:</strong> {{ participantData?.hotelDetails?.comments }}</li>
+  </ul>
+   </div>
+
+   <div *ngIf="participantData?.expertise || participantData?.department">
+    <h3>Expertise and Department</h3>
+    <ul>
+      <li><strong>Expertise:</strong> {{ participantData.expertise || 'N/A' }}</li>
+      <li><strong>Department:</strong> {{ participantData.department || 'N/A' }}</li>
+    </ul>
+  </div>
+   </div>
+  

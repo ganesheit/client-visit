@@ -1,0 +1,21 @@
+<mat-card class="login-container">
+    <mat-toolbar color="primary">
+        <h1>LOGIN</h1>
+    </mat-toolbar>
+    <form class="login-form">
+        <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input required type="text" matInput>
+            <mat-icon matPrefix>person</mat-icon>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input required type="password" matInput>
+            <mat-icon matPrefix>key</mat-icon>
+        </mat-form-field>
+        <div class="login-btn">
+            <button mat-raised-button color="primary" (click)="navigateToHome()">Login</button>
+        </div>
+    </form>
+    
+</mat-card>

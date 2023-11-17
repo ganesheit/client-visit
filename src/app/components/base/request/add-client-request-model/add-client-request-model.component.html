@@ -1,0 +1,58 @@
+<h2 mat-dialog-title>
+    Create New Client Visit
+</h2>
+<mat-dialog-content class="mat-typography">
+    <form [formGroup]="requestForm" class="form-container">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput formControlName="clientName">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Visiting Country</mat-label>
+                <mat-select formControlName="countryName">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let country of countries" [value]="country">{{ country }}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>State</mat-label>
+                <mat-select formControlName="state">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let state of states" [value]="state">{{ state }}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="region">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let city of cities" [value]="city">{{ city }}</mat-option>
+                  </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Primary Coordinator</mat-label>
+                <input matInput formControlName="primaryVisitCoordinators">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Secondary Coordinator</mat-label>
+                <input matInput formControlName="secondaryVisitCoordinators">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter a date range for visit</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                    <input matStartDate formControlName="fromDate"readonly>
+                    <input matEndDate formControlName="toDate" readonly>
+                </mat-date-range-input>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+            </mat-form-field>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" [disabled]="!requestForm.valid" [mat-dialog-close]="requestForm.getRawValue()">{{data['mode']==='create' ? 'Create' : 'Update'}}</button>
+</mat-dialog-actions>

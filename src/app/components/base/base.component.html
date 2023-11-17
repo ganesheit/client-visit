@@ -1,0 +1,41 @@
+<mat-drawer-container class="drawer-container" [hasBackdrop]="false">
+    <mat-drawer #drawer mode="side">
+        <app-navigation></app-navigation>
+    </mat-drawer>
+    <mat-drawer-content>
+        <!-- Toolbar -->
+        <mat-toolbar color="primary">
+            <button mat-icon-button (click)="drawer.toggle()">
+                <mat-icon>{{drawer.opened ? 'close':'menu'}}</mat-icon>
+            </button>
+            <span>Client Visit APP</span>
+            <span class="toolbar-spacer"></span>
+
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+                <mat-icon>person</mat-icon>
+            </button>
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item>
+                    <mat-icon>account_circle</mat-icon>
+                    <span>My Profile</span>
+                </button>
+                <button mat-menu-item>
+                    <mat-icon>logout</mat-icon>
+                    <span>Logout</span>
+                </button>
+            </mat-menu>
+        </mat-toolbar>
+
+         <!-- Content -->
+        <mat-card>
+         <!--   <mat-card-header>
+                <mat-card-title>{{pageTitle}}</mat-card-title>
+            </mat-card-header> -->
+            <mat-card-content>
+                <mat-divider></mat-divider>
+                <router-outlet></router-outlet>
+            </mat-card-content>
+        </mat-card>
+       
+    </mat-drawer-content>
+</mat-drawer-container>

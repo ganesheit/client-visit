@@ -1,0 +1,18 @@
+
+<div class="text-align-right margin-b-20">
+  <button mat-raised-button color="primary" (click)="openDialog()">Add</button>
+</div>
+<mat-accordion class="headers-align" multi>
+  <ng-container *ngFor="let arrangement of arrangements">
+    <p class="divider-title fs-7">{{arrangement.date | date:'mediumDate'}}</p>
+    <app-arrangement-vehicle *ngFor="let vehicleArrangement of arrangement.arrangement.vehicleDetails" (save)="modify($event, 'vehicle')" [vehicle]="vehicleArrangement" [editMode]="false"></app-arrangement-vehicle>
+    <app-arrangement-food *ngFor="let foodArrangement of arrangement.arrangement.foodDetails" (save)="modify($event, 'food')" [food]="foodArrangement" [editMode]="false"></app-arrangement-food>
+    <app-arrangement-event *ngFor="let eventArrangement of arrangement.arrangement.eventDetails" (save)="modify($event, 'event')" [event]="eventArrangement" [editMode]="false"></app-arrangement-event>
+    <!-- <p class="divider-title fs-7">Dec 11, 2023</p> -->
+    <!-- <app-arrangement-food [editMode]="false"></app-arrangement-food> -->
+    <!-- <app-arrangement-event [editMode]="false"></app-arrangement-event> -->
+    <!-- <p class="divider-title fs-7">Dec 14, 2023</p> -->
+    <!-- <app-arrangement-event [editMode]="false"></app-arrangement-event> -->
+    <!-- <app-arrangement-vehicle [editMode]="false"></app-arrangement-vehicle> -->
+  </ng-container>
+</mat-accordion>

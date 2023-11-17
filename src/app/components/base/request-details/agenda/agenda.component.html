@@ -1,0 +1,46 @@
+<div class="text-align-right">
+  <button mat-raised-button color="primary" (click)="openDialog()">Add Agenda</button>
+</div>
+<mat-tab-group  *ngIf="(agendaList | async)?.length >  0" class="margin-top-sm" [selectedIndex]="selectedIndex">
+  <ng-container *ngFor="let agenda of agendaList | async">
+    <mat-tab label="{{agenda.date | date: 'MMM d, y'}}">
+      <div style="margin: 2px;">
+        <mat-accordion class="headers-align" multi>
+          <ng-container *ngFor="let agendaObj of agenda.agendas">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{ getLocalTime(agendaObj.fromDate)}} - {{getLocalTime(agendaObj.toDate)}}
+                </mat-panel-title>
+                <mat-panel-description>
+                 {{agendaObj.agendaTitle}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <div>
+                <div>Description : {{agendaObj.agendaDescription}}</div>
+                <p>Client Participants: {{agendaObj.rabobankParticipants}}</p>
+                <p>Cognizant Participants: {{agendaObj.cognizantParticipant}}</p>
+                <div>Duration : {{durationInHoursandMinutes(agendaObj.fromDate, agendaObj.toDate)}}</div>
+                <p>Venue : {{agendaObj.venue}}</p>
+                <p>Presenters: {{agendaObj.presenters}}</p>
+                <p>Dress code: {{agendaObj.dressCode}}</p>
+                <div>
+                  <div class="pull-right ">
+                    <button class="circle-btn" (click)="editAgenda(agendaObj)"><mat-icon>edit</mat-icon></button>
+                    <button class="circle-btn delete"
+                      (click)="deleteAgenda(agendaObj?.id)"><mat-icon>delete</mat-icon></button>
+                  </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </ng-container>
+        </mat-accordion>
+      </div>
+    </mat-tab>
+  </ng-container>
+</mat-tab-group>
+
+  
+<ng-container *ngIf="(agendaList | async)?.length ===  0">
+  <div class="alert alert-info marTopCls" >No Agenda Found</div>
+</ng-container>

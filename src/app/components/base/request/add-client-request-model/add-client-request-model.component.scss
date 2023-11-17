@@ -1,0 +1,12 @@
+.form-container {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    
+    & > * {
+        flex: 1 0 300px;
+    }
+}

@@ -1,0 +1,62 @@
+:host::ng-deep.mat-mdc-tab-labels {
+    gap: 0;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
+}
+
+:host::ng-deep.mdc-tab {
+    max-width: 120px;
+    border-radius: 0;
+}
+
+:host::ng-deep.mdc-tab:not(.mdc-tab--active) {
+    border: 1px solid #e0e0e0;
+    border-bottom: 0;
+}
+
+:host::ng-deep.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label {
+    color: #fff;
+}
+
+:host::ng-deep.mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active {
+    background-color: #3f51b5;
+}
+
+:host::ng-deep.mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline {
+    border-color: transparent;
+}
+
+mat-expansion-panel{
+    padding: 10px 0;
+}
+
+.circle-btn {
+    background-color: #3f51b5;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    padding-top: 4px;
+    margin-right: 20px;
+
+    &.delete {
+        background-color: #f44336;
+    }
+
+    &:hover {
+        background-color: #3f51b5;
+    }
+
+    .mat-icon {
+        font-size: 21px;
+    }
+}
+
+.pull-right {
+    display: flex; align-items: flex-end; justify-content:end;
+}
+
+.marTopCls {
+    margin-top: 20px;
+}

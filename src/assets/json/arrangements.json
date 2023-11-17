@@ -1,0 +1,96 @@
+{
+    "id": "6511769279f9d84414212c27",
+    "comments": "sample comments",
+    "vehicle": {
+        "comments": "sample comments",
+        "assign_to": "sathya.narayana5@cognizant.com",
+        "vechile_details": [
+            {
+                "id": 1,
+                "model": "Maruti Suzuki Eritga",
+                "comments": "sample comment",
+                "status": "Inprogress",
+                "pickup_place": "Novotel, Navalur, Chennai",
+                "drop_place": "Cognizant Elcot, Shozinganallur, Chennai",
+                "pickup_time": "2023-09-03T07:30:00Z",
+                "passengers_count": "4",
+                "vehicle_no": "TN05 AP 8812",
+                "created_time": "2023-07-26T13:37:29.387Z",
+                "udpated_time": "2023-07-26T13:37:29.387Z"
+            },
+            {
+                "id": 2,
+                "model": "Maruti Suzuki Eritga",
+                "comments": "sample comment",
+                "status": "Inprogress",
+                "pickup_place": "Cognizant Elcot, Shozinganallur, Chennai",
+                "drop_place": "Novotel, Navalur, Chennai",
+                "pickup_time": "2023-09-04T17:30:00Z",
+                "passengers_count": "4",
+                "vehicle_no": "TN05 AP 8812",
+                "created_time": "2023-07-26T13:37:29.387Z",
+                "udpated_time": "2023-07-26T13:37:29.387Z"
+            }
+        ]
+    },
+    "food": {
+        "comments": "sample comment",
+        "assign_to": "sathya.narayana5@cognizant.com",
+        "food_details": [
+            {
+                "id": 1,
+                "status": "Inprogress",
+                "time": "2023-09-04T11:30:00Z",
+                "comments": "sample comment",
+                "meal_type": "lunch",
+                "created_time": "2023-07-26T13:37:29.387Z",
+                "udpated_time": "2023-07-26T13:37:29.387Z",
+                "preference_details": [
+                    {
+                        "id": 1,
+                        "type": "Veg",
+                        "menu": "North Indian Veg Meals",
+                        "comments": "sample comment",
+                        "total_members": 2
+                    },
+                    {
+                        "id": 2,
+                        "type": "Non-Veg",
+                        "menu": "Biriyani",
+                        "comments": "sample comment",
+                        "total_members": 2
+                    }
+                ]
+            }
+        ]
+    },
+    "event": {
+        "comments": "sample comment",
+        "event_details": [
+            {
+                "id": 1,
+                "type": "Birthday Cake Cutting",
+                "place": "Cognizant Elcot, ODC 7",
+                "comments": "sample comment",
+                "status": "Inprogress",
+                "title": "Birthday Cake Cutting",
+                "description": "Birthday Cake Cutting for assocate X of team Y",
+                "start_time": "2023-09-06T15:00:00Z",
+                "end_time": "2023-09-06T15:30:00Z",
+                "total_members": 4,
+                "assign_to": "sathya.narayana5@cognizant.com",
+                "created_time": "2023-07-26T13:37:29.387Z",
+                "udpated_time": "2023-07-26T13:37:29.387Z",
+                "items": [
+                    {
+                        "id": 1,
+                        "status": "Inprogress",
+                        "comments": "sample comment",
+                        "item_name": "Balloon",
+                        "total_quantities": "100 pieces"
+                    }
+                ]
+            }
+        ]
+    }
+}

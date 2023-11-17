@@ -1,0 +1,99 @@
+<mat-expansion-panel [disabled]="editMode" [expanded]="editMode">
+    <mat-expansion-panel-header *ngIf="!editMode">
+        <mat-panel-title>
+            <mat-icon color="primary">directions_car</mat-icon><span class="spacing-l-10" *ngIf="!editMode">Airport to Novotel</span>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form class="container-fluid margin-t-20" [formGroup]="form">
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Pick up:</strong></span><span class="spacing-l-10">{{vehicle.pickupPlace}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Pick up</mat-label>
+                    <input formControlName="pickupPlace" matInput type="text" required [(ngModel)]="vehicle.pickupPlace">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Drop:</strong></span><span class="spacing-l-10">{{vehicle.dropPlace}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Drop</mat-label>
+                    <input formControlName="dropPlace" matInput type="text" required [(ngModel)]="vehicle.dropPlace">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Time:</strong></span><span class="spacing-l-10">{{vehicle.pickupTime | date:'shortTime'}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Time</mat-label>
+                    <input formControlName="pickupTime" matInput type="datetime-local" required [(ngModel)]="vehicle.pickupTime">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Primary coordinator:</strong></span><span class="spacing-l-10">{{vehicle.primaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Primary coordinator</mat-label>
+                    <input formControlName="primaryCoordinator" matInput type="text" required [(ngModel)]="vehicle.primaryCoordinator">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Secondary coordinator:</strong></span><span class="spacing-l-10">{{vehicle.secondaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Secondary coordinator</mat-label>
+                    <input formControlName="secondaryCoordinator" matInput type="text" required [(ngModel)]="vehicle.secondaryCoordinator">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Model:</strong></span><span class="spacing-l-10">{{vehicle.model}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Model</mat-label>
+                    <input formControlName="model" matInput type="text" required [(ngModel)]="vehicle.model">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Vehicle no:</strong></span><span class="spacing-l-10">{{vehicle.vehicleNo}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Vehicle no</mat-label>
+                    <input formControlName="vehicleNo" matInput type="text" required [(ngModel)]="vehicle.vehicleNo">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Status:</strong></span><span class="spacing-l-10 text-success"><strong>{{vehicle.status}}</strong></span>
+            </div>
+            <div class="col"  *ngIf="editMode">
+                <span><strong>Status:</strong></span>
+                <mat-chip-listbox formControlName="status" required [(ngModel)]="vehicle.status">
+                    <mat-chip-option> Open </mat-chip-option>
+                    <mat-chip-option> In Progress </mat-chip-option>
+                    <mat-chip-option> Done </mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="editMode">
+                <button mat-raised-button [disabled]="form.status === 'INVALID'" color="primary" [mat-dialog-close]="true" (click)="onSave()">Save</button>
+            </div>
+        </div>
+    </form>
+    <button mat-mini-fab color="primary" (click)="editMode=true" class="edit-icon" *ngIf="!editMode">
+        <mat-icon>edit</mat-icon>
+    </button>
+</mat-expansion-panel>

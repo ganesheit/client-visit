@@ -1,0 +1,160 @@
+[
+    {
+        "id": "6516bd07cfb14e564ef9069e",
+        "countryName": "Netherlands",
+        "clientName": "Rabobank",
+        "fromDate": "2024-03-27T10:15:30",
+        "toDate": "2024-04-27T10:15:30",
+        "status": "Completed",
+        "createdBy": "Selva",
+        "primaryVisitCoordinators": "visagan,selva",
+        "secondaryVisitCoordinators": "selva,kumar",
+        "createdOn": "2023-09-29T17:33:19.192",
+        "updatedOn": "2023-09-29T17:34:03.648",
+        "state": "Utrecht",
+        "region": "Utrecht",
+        "participant": [
+            {
+                "id": "6516bd2dcfb14e564ef906a1",
+                "comments": "Test4",
+                "createdDate": "2023-09-29T17:33:57.722",
+                "updatedDate": "2023-09-29T17:33:57.722",
+                "name": "Selva",
+                "age": 32,
+                "mobileNo": "4758375",
+                "email": "Selva@gmail.com",
+                "company": "Cognizant",
+                "department": "FSE",
+                "address": "Gowrivakkam",
+                "linkedInProfile": "sfsdf",
+                "expertise": "Backend",
+                "type": "Test",
+                "imageURL": "Test",
+                "arrivalflightDetails": 
+                    {
+                        "flightNo": "82747",
+                        "origin": "India",
+                        "arrivalDate": "2023-04-27T10:15:30",
+                        "carrier": "Lufthansa",
+                        "comments": "Test"
+                    }
+                 ,
+                 "departureflightDetails": 
+                 {
+                    "flightNo": "82747",
+                    "destination": "Amsterdam",
+                    "departureDate": "2023-03-27T10:15:30",
+                    "carrier": "Lufthansa",
+                    "comments": "Test"
+                 }
+              ,
+                "hotelDetails": 
+                    {
+                        "name": "Marriott",
+                        "address": "Amsterdam",
+                        "fromDate": "2023-03-28T10:15:30",
+                        "toDate": "2023-04-27T10:15:30",
+                        "comments": "Test",
+                        "contactNo": "sfsf"
+                    }
+            } 
+        ],
+        "agenda": [
+            {
+                "id": "6516bd33cfb14e564ef906a2",
+                "createdDate": "2023-09-29T17:34:03.627",
+                "updatedDate": "2023-09-29T17:34:03.627",
+                "fromDate": "2007-12-03T10:30:00",
+                "toDate": "2007-12-03T11:30:00",
+                "duration": "30",
+                "agendaTitle": "Rabobank Town Hall",
+                "agendaDescription": "Town hall ",
+                "rabobankParticipants": "Laura",
+                "cognizantParticipant": "visagan",
+                "clientProposedTopics": "none",
+                "dressCode": "dresscode",
+                "venue": "venue",
+                "comments": "comments value"
+            }
+        ]
+    },
+    {
+        "id": "6516bd79cfb14e564ef906a3",
+        "countryName": "Netherlands",
+        "clientName": "Rabobank",
+        "fromDate": "2024-03-27T10:15:30",
+        "toDate": "2024-04-27T10:15:30",
+        "status": "Completed",
+        "createdBy": "Kalyan",
+        "primaryVisitCoordinators": "visagan,selva",
+        "secondaryVisitCoordinators": "selva,kumar",
+        "createdOn": "2023-09-29T17:35:13.871",
+        "updatedOn": "2023-09-29T17:36:30.447",
+        "state": "North Holland",
+        "region": "Amsterdam",
+        "participant": [
+            {
+                "id": "6516bd99cfb14e564ef906a4",
+                "comments": "Test4",
+                "createdDate": "2023-09-29T17:35:45.35",
+                "updatedDate": "2023-09-29T17:35:45.35",
+                "name": "Kalyan",
+                "age": 32,
+                "mobileNo": "4758375",
+                "email": "Kalyan@gmail.com",
+                "company": "Cognizant",
+                "department": "FSE",
+                "address": "Gowrivakkam",
+                "linkedInProfile": "sfsdf",
+                "expertise": "Frontend",
+                "type": "Test",
+                "imageURL": "Test",
+                "arrivalflightDetails": 
+                    {
+                        "flightNo": "82747",
+                        "origin": "India",
+                        "arrivalDate": "2023-04-27T10:15:30",
+                        "carrier": "Lufthansa",
+                        "comments": "Test"
+                    }
+                 ,
+                 "departureflightDetails": 
+                 {
+                    "flightNo": "82747",
+                    "destination": "Amsterdam",
+                    "departureDate": "2023-03-27T10:15:30",
+                    "carrier": "Lufthansa",
+                    "comments": "Test"
+                 },
+
+                "hotelDetails": 
+                    {
+                        "name": "Marriott",
+                        "address": "Amsterdam",
+                        "fromDate": "2023-03-28T10:15:30",
+                        "toDate": "2023-04-27T10:15:30",
+                        "comments": "Test",
+                        "contactNo": "sfsf"
+                    }
+            }
+        ],
+        "agenda": [
+            {
+                "id": "6516bdc6cfb14e564ef906a5",
+                "createdDate": "2023-09-29T17:36:30.425",
+                "updatedDate": "2023-09-29T17:36:30.425",
+                "fromDate": "2007-12-03T10:30:00",
+                "toDate": "2007-12-03T11:30:00",
+                "duration": "30",
+                "agendaTitle": "Rabobank Town Hall",
+                "agendaDescription": "Town hall ",
+                "rabobankParticipants": "Laura",
+                "cognizantParticipant": "visagan",
+                "clientProposedTopics": "none",
+                "dressCode": "dresscode",
+                "venue": "venue",
+                "comments": "comments value"
+            }
+        ]
+    }
+]

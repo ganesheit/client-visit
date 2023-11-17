@@ -1,0 +1,31 @@
+<mat-tab-group color="primary" (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Participants">
+      <div class="tab-content">
+        <app-client-details
+          *ngIf="selectedTab === 'Participants'"
+        ></app-client-details>
+      </div>
+    </mat-tab>
+    <mat-tab label="Agenda">
+      <ng-template mat-tab-label>
+        <!-- <mat-icon class="example-tab-icon">schedule</mat-icon> -->
+        Agenda
+      </ng-template>
+      <div class="tab-content">
+        <app-agenda *ngIf="selectedTab === 'Agenda'"></app-agenda>
+      </div>
+    </mat-tab>
+    <mat-tab label="Arrangements">
+      <div class="tab-content">
+        <app-arrangements [id]=""
+          *ngIf="selectedTab === 'Arrangements'"
+        ></app-arrangements>
+      </div>
+    </mat-tab>
+    <!-- <mat-tab label="Report">
+          <div class="tab-content">
+              <app-report></app-report>
+          </div>
+      </mat-tab> -->
+  </mat-tab-group>
+  

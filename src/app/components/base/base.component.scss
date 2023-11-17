@@ -1,0 +1,36 @@
+.toolbar-spacer {
+    flex: 1 1 auto;
+}
+
+mat-toolbar {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+}
+
+mat-drawer-container {
+    height: 100vh;
+    mat-drawer {
+        width: 200px;
+    }
+}
+
+mat-card {
+    margin: 12px;
+    mat-card-header {
+        margin-bottom: 14px;
+        mat-card-title {
+            font-weight: bold;
+        }
+    }
+}
+
+mat-divider {
+    margin-bottom: 10px;
+    border-top-width: 2px !important;
+}
+
+.calendar-card {
+    width: 300px;
+}
+

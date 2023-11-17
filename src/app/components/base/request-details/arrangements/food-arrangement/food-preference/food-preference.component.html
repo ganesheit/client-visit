@@ -1,0 +1,55 @@
+<form #preferenceForm="ngForm" id="preferenceForm">
+<div class="container-fluid" *ngFor="let prefer of preferences; let last = last; let index = index">
+    <div class="row margin-t-20">
+        <div class="col" *ngIf="!prefer.editMode">
+            <span><strong>Type:</strong></span><span class="spacing-l-10">{{prefer.type}}</span>
+        </div>
+        <div class="col" *ngIf="prefer.editMode">
+            <mat-form-field appearance="outline">
+                <mat-label>Type</mat-label>
+                <input matInput type="text" [(ngModel)]="prefer.type" name="type" id="type" required>
+            </mat-form-field>
+        </div>
+        <div class="col" *ngIf="!prefer.editMode">
+            <span><strong>Menu:</strong></span><span class="spacing-l-10">{{prefer.menu}}</span>
+        </div>
+        <div class="col" *ngIf="prefer.editMode">
+            <mat-form-field appearance="outline">
+                <mat-label>Menu</mat-label>
+                <input matInput type="text" [(ngModel)]="prefer.menu" name="menu" id="menu" required>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row margin-t-20">
+        <div class="col" *ngIf="!prefer.editMode">
+            <span><strong>Total members:</strong></span><span class="spacing-l-10">{{prefer.totalMembers}}</span>
+        </div>
+        <div class="col" *ngIf="prefer.editMode">
+            <mat-form-field appearance="outline">
+                <mat-label>Total members</mat-label>
+                <input matInput type="number" [(ngModel)]="prefer.totalMembers" name="totalMembers" id="totalMembers" required> 
+            </mat-form-field>
+        </div>
+        <div class="col" *ngIf="!prefer.editMode">
+            <span><strong>Comments:</strong></span><span class="spacing-l-10">{{prefer.comments}}</span>
+        </div>
+        <div class="col" *ngIf="prefer.editMode">
+            <mat-form-field appearance="outline">
+                <mat-label>Comment</mat-label>
+                <input matInput type="text" [(ngModel)]="prefer.comments" name="comment" id="comment" required>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row margin-t-10" *ngIf="last">
+        <div class="col">
+            <button mat-mini-fab color="primary" (click)="savePreferences()" [disabled]="!preferenceForm.valid"><mat-icon>add</mat-icon></button>
+        </div>
+    </div>
+    <button mat-mini-fab color="primary" (click)="editPreference(prefer, index)" class="edit-icon" *ngIf="parentEditMode && !prefer.editMode">
+        <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-mini-fab color="warn" class="delete-icon" (click)="deletePreference(index)" *ngIf="parentEditMode && !prefer.editMode">
+        <mat-icon>delete</mat-icon>
+    </button>
+</div>
+</form>

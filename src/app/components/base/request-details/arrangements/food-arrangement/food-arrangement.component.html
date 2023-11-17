@@ -1,0 +1,118 @@
+<mat-expansion-panel [disabled]="editMode" [expanded]="editMode">
+    <mat-expansion-panel-header *ngIf="!editMode">
+        <mat-panel-title>
+            <mat-icon color="primary">fastfood</mat-icon><span class="spacing-l-10" *ngIf="!editMode">Meal 10:00 AM</span>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="container-fluid margin-t-20">
+        <!-- parent form start -->
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Meal type:</strong></span><span class="spacing-l-10">{{food.mealType}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Meal type</mat-label>
+                    <input matInput type="text" [(ngModel)]="food.mealType">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Time:</strong></span><span class="spacing-l-10">{{food.mealTime}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                    <!-- <input matInput type="datetime-local" [(ngModel)]="food.time"> -->
+                    <mat-form-field appearance="outline">
+                        <mat-label>Time</mat-label>
+                        <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Date and Time" [(ngModel)]="food.mealTime">
+                        <ngx-mat-datepicker-toggle matSuffix [for]="startDatePicker"></ngx-mat-datepicker-toggle>
+                        <ngx-mat-datetime-picker #startDatePicker [enableMeridian]="true">
+                          <ngx-mat-datepicker-actions>
+                            <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" ngxMatDatepickerApply>Apply</button>
+                          </ngx-mat-datepicker-actions>
+                        </ngx-mat-datetime-picker>
+                      </mat-form-field>
+            </div>
+        </div>
+
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Primary coordinator:</strong></span><span class="spacing-l-10">{{food.primaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Primary coordinator</mat-label>
+                    <input matInput type="text" [(ngModel)]="food.primaryCoordinator">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Secondary coordinator:</strong></span><span class="spacing-l-10">{{food.secondaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Secondary coordinator</mat-label>
+                    <input matInput type="text" [(ngModel)]="food.secondaryCoordinator">
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- parent form end -->
+
+        <!-- status start -->
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Status:</strong></span><span
+                    class="spacing-l-10 text-danger"><strong>{{food.status}}</strong></span>
+            </div>
+            <div class="col"  *ngIf="editMode">
+                <span><strong>Status:</strong></span>
+                <mat-chip-listbox [(ngModel)]="food.status">
+                    <mat-chip-option> Open </mat-chip-option>
+                    <mat-chip-option> In Progress </mat-chip-option>
+                    <mat-chip-option> Done </mat-chip-option>
+                  </mat-chip-listbox>
+            </div>
+        </div>
+         <!-- status end -->
+
+        <!-- Add preference start -->
+         <div class="row margin-b-20">
+            <div class="col" *ngIf="editMode">
+                <button mat-raised-button color="primary" [disabled]="isAddPreference" (click)="addPreference()">Add Preference</button>
+            </div>
+        </div>
+        <!-- Add preference end -->
+
+         <!-- preferences start -->
+
+         <div class="row margin-b-20" *ngIf="isAddPreference">
+            <div class="col">
+                <!-- <span><strong>Add Preference</strong></span> -->
+                <arrangement-preference-food [editMode]="true" [parentEditMode]="editMode"></arrangement-preference-food>
+            </div>
+        </div>
+
+        <!-- <div class="row margin-b-20">
+            <div class="col">
+                <span><strong>Preferences:</strong></span>
+                <arrangement-preference-food [editMode]="false" [parentEditMode]="editMode"></arrangement-preference-food>
+                <mat-divider class=" margin-t-20"></mat-divider>
+                <arrangement-preference-food [editMode]="false" [parentEditMode]="editMode"></arrangement-preference-food>
+                <mat-divider class=" margin-t-20"></mat-divider>
+                <arrangement-preference-food [editMode]="false" [parentEditMode]="editMode"></arrangement-preference-food>
+            </div>
+        </div> -->
+         <!-- preferences end -->
+
+         <!-- save button start -->
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="editMode">
+                <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="onSave()">Save</button>
+            </div>
+        </div>
+        <!-- save button end -->
+    </div>
+    <button mat-mini-fab color="primary" (click)="enableEditMode()" class="edit-icon" *ngIf="!editMode">
+        <mat-icon>edit</mat-icon>
+    </button>
+</mat-expansion-panel>

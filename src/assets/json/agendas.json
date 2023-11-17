@@ -1,0 +1,44 @@
+[
+    {
+        "date": "2023-10-02",
+        "agendas": [
+            {
+                "id": "651beacfae811564db171d0e",
+                "createdDate": "2023-10-03T15:49:59.662",
+                "updatedDate": "2023-10-03T15:49:59.662",
+                "fromDate": "2023-10-02T18:30:00",
+                "toDate": "2023-10-03T14:29:00",
+                "duration": "1199",
+                "agendaTitle": "New event ",
+                "agendaDescription": "test description",
+                "rabobankParticipants": "Laura,Visagan",
+                "cognizantParticipant": "PK,Laura",
+                "clientProposedTopics": "testing topic",
+                "dressCode": "Triditional,Casuals",
+                "venue": "cognizant",
+                "comments": "test comment"
+            }
+        ]
+    },
+    {
+        "date": "2023-10-03",
+        "agendas": [
+            {
+                "id": "651beb6aae811564db171d0f",
+                "createdDate": "2023-10-03T15:52:34.552",
+                "updatedDate": "2023-10-03T15:52:34.552",
+                "fromDate": "2023-10-03T04:30:00",
+                "toDate": "2023-10-03T06:30:00",
+                "duration": "120",
+                "agendaTitle": "event 1",
+                "agendaDescription": "test desc",
+                "rabobankParticipants": "Laura,Visagan,Amerik",
+                "cognizantParticipant": "Laura,Visagan",
+                "clientProposedTopics": "test topic",
+                "dressCode": "Business Casuals,Triditional",
+                "venue": "cognizant",
+                "comments": "test comment"
+            }
+        ]
+    }
+]

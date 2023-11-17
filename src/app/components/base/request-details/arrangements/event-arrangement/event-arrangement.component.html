@@ -1,0 +1,142 @@
+<mat-expansion-panel [disabled]="editMode" [expanded]="editMode">
+    <mat-expansion-panel-header *ngIf="!editMode">
+        <mat-panel-title>
+            <mat-icon color="primary">event</mat-icon><span class="spacing-l-10" *ngIf="!editMode">{{event.title}}</span>
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    {{event.title}}
+    <div class="container-fluid margin-t-20">
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                {{event.description}}
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Description</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.description">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Type:</strong></span><span class="spacing-l-10">{{event.type}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Type</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.type">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Start time:</strong></span><span class="spacing-l-10">{{event.startTime}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <!-- <mat-form-field appearance="outline">
+                    <mat-label>Start time</mat-label>
+                    <input matInput type="datetime-local" [(ngModel)]="event.startTime">
+                </mat-form-field> -->
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Start Time</mat-label>
+                    <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Date and Time" [(ngModel)]="event.startTime">
+                    <ngx-mat-datepicker-toggle matSuffix [for]="startDatePicker"></ngx-mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #startDatePicker [enableMeridian]="true">
+                      <ngx-mat-datepicker-actions>
+                        <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" ngxMatDatepickerApply (click)="calculateDuration()">Apply</button>
+                      </ngx-mat-datepicker-actions>
+                    </ngx-mat-datetime-picker>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>End time:</strong></span><span class="spacing-l-10">{{event.endTime}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>End Time</mat-label>
+                    <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Date and Time" [(ngModel)]="event.endTime">
+                    <ngx-mat-datepicker-toggle matSuffix [for]="startDatePicker"></ngx-mat-datepicker-toggle>
+                    <ngx-mat-datetime-picker #startDatePicker [enableMeridian]="true">
+                      <ngx-mat-datepicker-actions>
+                        <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" ngxMatDatepickerApply (click)="calculateDuration()">Apply</button>
+                      </ngx-mat-datepicker-actions>
+                    </ngx-mat-datetime-picker>
+                  </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Place:</strong></span><span class="spacing-l-10">{{event.place}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Place</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.place">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Total members:</strong></span><span class="spacing-l-10">{{event.totalMembers}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Total members</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.totalMembers">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Primary coordinator:</strong></span><span class="spacing-l-10">{{event.primaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Primary coordinator</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.primaryCoordinator">
+                </mat-form-field>
+            </div>
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Secondary coordinator:</strong></span><span class="spacing-l-10">{{event.secondaryCoordinator}}</span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <mat-form-field appearance="outline">
+                    <mat-label>Secondary coordinator</mat-label>
+                    <input matInput type="text" [(ngModel)]="event.secondaryCoordinator">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="!editMode">
+                <span><strong>Status:</strong></span><span
+                    class="spacing-l-10 text-danger"><strong>{{event.status}}</strong></span>
+            </div>
+            <div class="col" *ngIf="editMode">
+                <span><strong>Status:</strong></span>
+                <mat-chip-listbox [(ngModel)]="event.status">
+                    <mat-chip-option> Open </mat-chip-option>
+                    <mat-chip-option> In Progress </mat-chip-option>
+                    <mat-chip-option> Done </mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+        </div>
+        <div class="row margin-b-20" *ngIf="event.items && event.items.length">
+            <div class="col">
+                <span><strong>Items:</strong></span>
+                <ng-container *ngFor="let item of event.items">
+                    <arrangement-event-item [item]="item" [editMode]="false" [parentEditMode]="editMode"></arrangement-event-item>
+                    <mat-divider class=" margin-t-20"></mat-divider>
+                </ng-container>
+            </div>
+        </div>
+        <div class="row margin-b-20">
+            <div class="col" *ngIf="editMode">
+                <button mat-raised-button color="primary" [mat-dialog-close]="true" (click)="onSave()">Save</button>
+            </div>
+        </div>
+    </div>
+    <button mat-mini-fab color="primary" (click)="enableEditMode()" class="edit-icon" *ngIf="!editMode">
+        <mat-icon>edit</mat-icon>
+    </button>
+</mat-expansion-panel>

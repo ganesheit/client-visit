@@ -1,0 +1,27 @@
+mat-panel-title {
+  font-weight: 900;
+  font-size: medium;
+}
+
+.address {
+  flex-grow: 1;
+}
+
+mat-card-title {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+mat-card-title {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.mat-mdc-card-header {
+  justify-content: space-between;
+}
+
+.justify-content-start {
+  justify-content: start !important;
+}

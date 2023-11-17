@@ -1,0 +1,21 @@
+<div class="container-fluid">
+    <div class="row margin-b-20 margin-t-20">
+        <div class="col-4">
+            <div>
+                <mat-form-field>
+                    <mat-label>Select arrangement</mat-label>
+                    <mat-select (selectionChange)="onSelect($event.value)">
+                        <mat-option value="event">Event</mat-option>
+                        <mat-option value="food">Food</mat-option>
+                        <mat-option value="vehicle">Vehicle</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+    <div class="row margin-b-20">
+        <app-arrangement-event (save)="save($event)" *ngIf="type === 'event'"></app-arrangement-event>
+        <app-arrangement-food (save)="save($event)" *ngIf="type === 'food'"></app-arrangement-food>
+        <app-arrangement-vehicle (save)="save($event)" *ngIf="type === 'vehicle'"></app-arrangement-vehicle>
+    </div>
+</div>

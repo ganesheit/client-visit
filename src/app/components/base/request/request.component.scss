@@ -1,0 +1,16 @@
+.new-request-btn {
+    text-align: right;
+    margin: 20px 0;
+}
+
+.status-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 50px;
+    mat-spinner {
+        width: 30px !important;
+        height: 30px !important;
+    }
+}

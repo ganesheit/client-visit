@@ -1,0 +1,112 @@
+@use '@angular/material' as mat;
+@import 'ngx-toastr/toastr';
+
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: "Gellix";  
+}
+
+@font-face {
+    font-family: 'Gellix';
+    src: url(assets/Gellix-Regular.woff2);
+}
+
+@include mat.core();
+
+// Set the default typography
+@include mat.all-component-typographies(
+  mat.define-typography-config($font-family: 'Gellix')
+);
+
+// Define the default theme
+$default-theme: mat.define-light-theme(
+  (
+    typography:
+      mat.define-typography-config(
+        $font-family: 'Gellix',
+      ),
+    density: 0,
+  )
+);
+
+@include mat.all-component-themes($default-theme);
+
+th {
+  font-weight: bolder !important;
+}
+
+.no-matching-td {
+  padding: 14px;
+}
+
+.form-container {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 20px;
+  flex-wrap: wrap;
+  
+  & > * {
+      flex: 1 0 300px;
+  }    
+
+  & > .text-field {
+      flex-basis: 100%;
+  }
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap:10px
+}
+
+.flex-form-fields {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.margin-top-xs {
+  margin-top: 8px;
+}
+.margin-top-sm {
+  margin-top: 12px;
+}
+.margin-top-md {
+  margin-top: 16px;
+}
+.margin-top-lg {
+  margin-top: 20px;
+}
+.margin-top-xl {
+  margin-top: 24px;
+}
+
+.toast-center {
+  margin: auto;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.view-icon {
+  color: rgb(16, 184, 16); 
+}
+
+.delete-icon {
+  color: red; 
+}

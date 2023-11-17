@@ -1,0 +1,91 @@
+<h2 mat-dialog-title>{{data.action === 'add' ? 'Add New Agenda': 'Update Agenda'}}</h2>
+<div mat-dialog-content>
+    <form class="form-container" [formGroup]="agendaForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Agenda Title</mat-label>
+            <input matInput type="text" formControlName="agendaTitle">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Start Time</mat-label>
+            <input matInput [ngxMatDatetimePicker]="startDatePicker" placeholder="Date and Time" formControlName="startTime">
+            <ngx-mat-datepicker-toggle matSuffix [for]="startDatePicker"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #startDatePicker [enableMeridian]="true">
+              <ngx-mat-datepicker-actions>
+                <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" ngxMatDatepickerApply (click)="calculateDuration()">Apply</button>
+              </ngx-mat-datepicker-actions>
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>End Time</mat-label>
+            <input matInput [ngxMatDatetimePicker]="endDatePicker" placeholder="Date and Time" formControlName="endTime">
+            <ngx-mat-datepicker-toggle matSuffix [for]="endDatePicker"></ngx-mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #endDatePicker [enableMeridian]="true">
+              <ngx-mat-datepicker-actions>
+                <button mat-button ngxMatDatepickerCancel>Cancel</button>
+                <button mat-raised-button color="primary" ngxMatDatepickerApply (click)="calculateDuration()">Apply</button>
+              </ngx-mat-datepicker-actions>
+            </ngx-mat-datetime-picker>
+          </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Duration</mat-label>
+            <input matInput type="text" [(ngModel)]="duration"   [ngModelOptions]="{standalone: true}" >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Presenters</mat-label>
+            <mat-select multiple formControlName="presenters">
+              <mat-option *ngFor="let presenterName of presenters" [value]="presenterName">{{presenterName}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Client Participants</mat-label>
+            <mat-select multiple formControlName="raboparticipants">
+              <mat-option *ngFor="let rabo of raboParticipants" [value]="rabo">{{rabo}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Cognizant Participants</mat-label>
+            <mat-select multiple formControlName="cognizantparticipants">
+                <mat-option *ngFor="let cognizant of cognizantParticipants" [value]="cognizant">{{cognizant}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Dess Code</mat-label>
+            <mat-select multiple formControlName="dresscode">
+                <mat-option *ngFor="let dress of dressCode" [value]="dress">{{dress}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Venue</mat-label>
+            <input matInput type="text" formControlName="venue">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="client-topics">
+            <mat-label>Client Proposed Topics</mat-label>
+            <input matInput type="text" formControlName="clientProposedTopics">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="text-field">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="text-field">
+            <mat-label>Comments</mat-label>
+            <textarea matInput placeholder="Enter your comment here..." formControlName="comments"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [mat-dialog-close]="true" [disabled]="agendaForm.invalid"
+     (click)="onAddAgendaClick()">{{data.action === 'add' ? 'Add': 'Update'}}</button>
+</div>

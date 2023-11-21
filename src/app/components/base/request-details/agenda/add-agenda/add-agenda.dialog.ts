@@ -28,14 +28,14 @@ export class AddAgendaDialog {
       agendaTitle: ['', Validators.required],
       startTime: ['', Validators.required],
       endTime: ['', Validators.required],
-      presenters: ['', Validators.required],
-      raboparticipants: ['', Validators.required],
-      cognizantparticipants: ['', Validators.required],
-      description: ['', Validators.required],
-      dresscode: ['', Validators.required],
-      venue: ['', Validators.required],
-      comments: ['', Validators.required],
-      clientProposedTopics: ['', Validators.required]
+      presenters: [''],
+      raboparticipants: [''],
+      cognizantparticipants: [''],
+      description: [''],
+      dresscode: [''],
+      venue: [''],
+      comments: [''],
+      clientProposedTopics: ['']
     });
     this.clientVisitId = this.data.clientVisitId;
     if (this.data.action === 'edit') {

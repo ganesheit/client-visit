@@ -22,7 +22,13 @@ export class AgendaService {
   }
 
   getAgendaByClientVisitId(clientVisitId: any): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/clientVisit/${clientVisitId}`).pipe(shareReplay());
+    const url = environment.prod || environment.staging
+    ? `${environment.agendaUrl}/clientVisit/${clientVisitId}`
+    : '/assets/json/agendas.json';
+
+    return this.http.get<any[]>(url);
+
+   // return this.http.get<any[]>(`${this.apiUrl}/clientVisit/${clientVisitId}`).pipe(shareReplay());
   }
 
   createAgenda(agendaDetails: AgendaDetail, clientVisitId: string): Observable<any> {
